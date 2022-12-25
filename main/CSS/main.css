@@ -1,0 +1,1283 @@
+/*....................................................................................
+FONTS
+.....................................................................................*/
+@font-face {
+   font-family: "Amalfi";
+   src:local("Amalfi"),
+      url("../fonts/Amalfi/Amalfi.otf");
+}
+@font-face {
+	font-family: 'Acrom-Light';
+	src: url('../fonts/Acrom/Acrom-Light.eot');
+	src: local('☺'), url('../fonts/Acrom/Acrom-Light.woff') format('woff'), url('../fonts/Acrom/Acrom-Light.ttf') format('truetype'), url('../fonts/Acrom/Acrom-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Acrom-Regular';
+	src: url('../fonts/Acrom/Acrom-Regular.eot');
+	src: local('☺'), url('../fonts/Acrom/Acrom-Regular.woff') format('woff'), url('../fonts/Acrom/Acrom-Regular.ttf') format('truetype'), url('../fonts/Acrom/Acrom-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Acrom-Medium';
+	src: url('../fonts/Acrom/Acrom-Medium.eot');
+	src: local('☺'), url('../fonts/Acrom/Acrom-Medium.woff') format('woff'), url('../fonts/Acrom/Acrom-Medium.ttf') format('truetype'), url('../fonts/Acrom/Acrom-Medium.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Acrom-Bold';
+	src: url('../fonts/Acrom/Acrom-Bold.eot');
+	src: local('☺'), url('../fonts/Acrom/Acrom-Bold.woff') format('woff'), url('../fonts/Acrom/Acrom-Bold.ttf') format('truetype'), url('../fonts/Acrom/Acrom-Bold.svg') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/Montserrat/Montserrat-Regular.eot');
+	src: local('☺'), url('../fonts/Montserrat/Montserrat-Regular.woff') format('woff'), url('../fonts/Montserrat/Montserrat-Regular.ttf') format('truetype'), url('../fonts/Montserrat/Montserrat-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PFDinDisplayPro';
+	src: url('../fonts/PFDinDisplayPro/PFDinDisplayPro-Light.eot');
+	src: local('☺'), url('../fonts/PFDinDisplayPro/PFDinDisplayPro-Light.woff') format('woff'), url('../fonts/PFDinDisplayPro/PFDinDisplayPro-Light.ttf') format('truetype'), url('../fonts/PFDinDisplayPro/PFDinDisplayPro-Light.svg') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Athiti-Light';
+	src: url('../fonts/Athiti/Athiti-Light.eot');
+	src: local('☺'), url('../fonts/Athiti/Athiti-Light.woff') format('woff'), url('../fonts/Athiti/Athiti-Light.ttf') format('truetype'), url('../fonts/Athiti/Athiti-Light.svg') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+/*....................................................................................
+Обнуление
+.....................................................................................*/
+*, *::before, *::after {
+   padding: 0;
+   margin: 0;
+   border: 0;
+   box-sizing: border-box;
+}
+a {
+   text-decoration: none;
+}
+ul, ol, li {
+   list-style: none;
+}
+img {
+   vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-weight: inherit;
+   font-size: inherit;
+}
+/*....................................................................................
+Заготовка
+.....................................................................................*/
+html, body {
+   height: 100%;
+}
+html{
+   scroll-behavior:smooth
+}
+.wrapper {
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+._container {
+   margin: 0px auto;
+}
+main li {
+   list-style-position: inside;
+}
+i{
+   background:url(../img/inked.png) no-repeat;
+   background-size:107% 100%;
+   background-position:center;
+   padding:11px 0
+}
+.title1{
+   font: 111px "Amalfi";
+   color: #EA7A93;
+   }
+/*....................................................................................
+HEADER
+.....................................................................................*/
+.header {
+   width: 100%;
+}
+img.background {
+   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   filter: brightness(60%);
+}
+.header__container1 {
+   position: relative;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   min-height: 50px;
+   border-bottom: 1px solid #FFFFFF; 
+}
+.container1__content{
+   font: 16px 'Acrom-Light';
+   color:  #FFFFFF;
+   margin-left: 300px;
+}
+.header__container2 {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   min-height: 82px;
+   margin-left: 220px;
+}
+.menu {
+   display:flex;
+   align-items:center;
+   column-gap:clamp(5px,1.71875vw,33px);
+   text-transform:uppercase;
+}
+.menu__item {
+   position:relative;
+   perspective:50px;
+   transform-style:preserve-3d;
+   white-space:nowrap;
+   cursor:pointer
+}
+.menu__item>.submenu{
+   position:absolute;
+   z-index:99;
+   transform:rotateX(-90deg);
+   transform-origin:top;
+   transition:.3s;
+   backface-visibility:hidden;
+   box-shadow:0 0 #0000;
+   background:rgba(85,85,85,.8);
+   backdrop-filter:blur(4px)
+}
+.menu__item>.submenu>.menu__item{
+   transform:rotateX(-90deg);
+   transition:transform .6s
+}
+.menu__item:hover{
+   position: relative;
+   z-index:11;
+}
+.menu__item:hover>.submenu{
+   position:absolute;
+   padding:16px;
+   box-shadow:0 4px 8px #0005;
+   border-radius:10px;
+   transform:rotateX(0);
+   transition-delay:0s
+}
+.menu__item:hover>.submenu>.menu__item{
+   transform:rotateX(0);
+   transition:transform .6s
+}
+.menu__txt1{
+   font: 40px "Amalfi";
+   color: #fff;
+}
+.menu__txt1:hover{
+   color: #BEE4D6;
+}
+.header__counter {
+   display: flex;
+   align-items: center;
+}
+.header__block {
+   display: flex;
+   margin-right: 220px;
+}
+.block {
+   position: relative;
+   margin-right: 8px;
+   background: #BEE4D6;
+   padding:0px 14px;
+   border-radius: 6px;
+   font: 30px 'Amalfi';
+}
+.block1{
+   position: relative;
+   margin-right: 8px;
+   background: #BEE4D6;
+   padding:0px 16px;
+   border-radius: 6px;
+   font: 30px 'Amalfi';
+}
+.block-text{
+   position: relative;
+   display: flex;
+   font: 36px 'Athiti-Light';
+   color: #FFFFFF;
+   margin-left: -220px;
+}
+
+.header__text {
+   display: flex;
+   position: absolute;
+   margin: 60px 0px 0px 106px;
+   font: 14px 'Acrom-Regular';
+   line-height: 17px;
+   color: #FFFFFF;
+}
+/*....................................................................................
+TIZER
+.....................................................................................*/
+.tizer{
+   top:0;
+   left:0;
+   right:0;
+   background-position:center;
+   color:#fff;
+   height:1068px;
+}
+.tizer__container{
+   width:min(1320px,96%);
+   margin:0 auto;
+   transform:rotate(0);
+   z-index: 20;
+   padding:205px 0 379px;
+}
+.tizer__title{
+   font: 247px "Amalfi"; 
+   color:#ffdec5;
+}
+.tizer__caption{
+   font:  100px "Amalfi"; 
+}
+
+/*....................................................................................
+FUND
+.....................................................................................*/
+   .fund{
+      margin: -180px 0px 120px 0px;
+   }
+   .panel{
+      width:min(1320px,96%);
+      margin:0 auto;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:left;
+      flex-wrap:wrap;
+      background-color:#f0e7e5;
+      background-repeat:no-repeat;
+      border-radius:37px;
+      background-position:right;
+      background-size:contain
+   }
+   .panel__left{
+      padding:56px 2.2916666667%;
+      flex:0 1 60%
+   }
+   .panel__title{
+      font: 100px "Amalfi" ;
+      margin-bottom:21px;
+      color: #000; 
+      
+   }
+   .panel__text{
+      font: 20px "Acrom-Regular";
+      margin-bottom:20px;
+      line-height: 24px;
+   }
+   .panel__button {
+      display: flex;
+   }
+   .pocket__text {
+      font: 57px "Amalfi";
+      color: #000;
+      margin: 28px 28px 0px 44px;
+   }
+   .pocket__arrow {
+      position: absolute;
+      margin: 50px 0px 0px 160px;
+   }
+/*....................................................................................
+NEWS
+.....................................................................................*/
+.card{
+   width:315px;
+   height:477px;
+   border-radius:30px;
+   position:relative;
+   overflow:hidden;
+   padding:22px;
+   cursor:pointer;
+}
+.card:hover>.card__plug.dark{
+   background:linear-gradient(rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 70%,rgba(0,0,0,.4) 80%)
+}
+.card__plug{
+   position:absolute;
+   inset:0;
+   z-index:0
+}
+.card__plug.dark{
+   transition:.5s;
+   background:linear-gradient(rgba(0,0,0,.4) 0%,rgba(0,0,0,.4) 70%,rgba(0,0,0,.4) 80%)
+}
+.card__plug.light{
+   background:linear-gradient(0deg,#FFC5D2 0%,rgba(255,197,210,0) 64.88%)
+}
+.card__bottom{
+   position:absolute;
+   z-index:2;
+   top:70%
+}
+.card__bottom.dark{
+   color:#ffc5d2
+}
+.card__arrow{
+      position:absolute;
+      bottom:34px;
+      right:21px
+}
+.card__arrow.light{
+   filter:invert(1)
+}
+.card__text{
+   font: 16px "Acrom-Light";
+   color: #fff;
+}
+.card__title{
+   font: 57px "Amalfi";
+   text-transform:uppercase
+}
+.news,.news-page,.report-page{
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   gap:20px 10px;
+   flex-wrap:wrap;
+   width:min(1320px,96%);
+   margin:0 auto;
+   margin-bottom:6.25vw
+}
+.news__caption{
+   width:315px;
+   height:277px
+}
+.news .card__bottom,.news-page .card__bottom,.report-page .card__bottom{
+   bottom:54px
+}
+.news__title{
+   font: 111px "Amalfi";
+}
+.news__text{
+   font: 16px "Acrom-Light";
+}
+.news__button{
+   margin-top:35px;
+   position:absolute;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   column-gap:19px;
+   background:#BEE4D6;
+   width:168px;
+   height:44px;
+   border-radius:20px
+}
+.news__button-text{
+   font: 37px "Amalfi";
+   color: #000;
+}
+.news__arrow{
+   color: #000;
+}
+/*....................................................................................
+CHILDREN
+.....................................................................................*/
+.children{
+   background:url(../img/back.png) no-repeat;
+   background-size:cover;
+   background-position:center;
+   position:relative
+}
+.children__container{
+   width:min(1320px,96%);
+   margin:0 auto 120px;
+   padding-top:17.1875vw;
+   padding-bottom:18.75vw
+}
+.children__galary{
+   display:flex;
+   justify-content:center;
+   flex-wrap:wrap;
+   gap:53px 21px
+}
+.children__galary>*{
+   flex:0 0 314px
+}
+.children__row{
+   width:100%;
+   display:flex;
+   align-items:flex-end;
+   justify-content:space-between;
+   margin-bottom:44px;
+   position:relative;
+   height:134px
+}
+.children__title{
+   font: 111px "Amalfi";
+}
+.children__bird{
+   position:absolute;
+   bottom:36px;
+   right:0px
+}
+.children__button{
+   background:#BEE4D6;
+   border-radius:20px;
+   padding:0 29px;
+   position:relative;
+   cursor:pointer
+}
+.children__button>span{
+   font: 37px "Amalfi";
+   margin-right:19px;
+   color: #000;
+}
+.children__arrow{
+   filter:invert(1);
+   margin-top: 12px;
+}
+.children__flying-bird{
+   position:absolute;
+   left:89px;
+   top:1278px
+}
+.card__text1{
+   font: 16px "Acrom-Light";
+   color: rgb(0, 0, 0);
+   white-space: nowrap;
+}
+
+.card__title1{
+   font: 57px "Amalfi";
+   color: #000;
+}
+/*....................................................................................
+ABOUT
+.....................................................................................*/
+.panel1{
+   width:min(1320px,96%);
+   margin:0 auto;
+   position:relative;
+   display:flex;
+   align-items:center;
+   justify-content:left;
+   flex-wrap:wrap;
+   background-color:#f0e7e5;
+   background-repeat:no-repeat;
+   border-radius:37px;
+   background-position:right;
+   background-size:contain;
+   margin-bottom: 120px;
+}
+.panel__left1{
+   padding:56px 2.2916666667%;
+   flex:0 1 60%
+}
+.panel__title1{
+   font: 100px "Amalfi";
+   margin-bottom:21px;
+}
+.panel__text1{
+   font: 16px "Acrom-Regular";
+   margin-bottom:20px;
+   white-space: nowrap;
+}
+.panel__txt1{
+   display: flex;
+   position: absolute;
+   margin: -76px 0px 0px 48px;
+}
+.panel__txt2{
+   display: flex;
+   position: absolute;
+   margin: -74px 0px 0px 48px;
+}
+.panel__txt5{
+   display: flex;
+   position: absolute;
+   margin: -68px 0px 0px 48px;
+}
+.panel__heart{
+   padding-bottom: 40px;
+}
+.news__button1{
+   margin-top:-36px;
+   position:absolute;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   column-gap:19px;
+   background:#BEE4D6;
+   width:168px;
+   height:44px;
+   border-radius:20px
+}
+.news__arrow1{
+   filter:invert(1);
+}
+/*....................................................................................
+Video
+.....................................................................................*/
+.video{
+   margin-bottom:400px
+}
+.video__container{
+   display:flex;
+   align-items:center;
+   width:min(1320px,96%);
+   margin:0 auto;
+   white-space: nowrap;
+   
+}
+.video__caption{
+   flex:0 0 300px
+}
+.video__title{
+   font: 111px "Amalfi";
+}
+.video__text{
+font: 16px "Acrom-Regular";
+}
+.news__button-video{
+   margin-top: 35px;
+   position:absolute;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   column-gap:19px;
+   background:#BEE4D6;
+   width:168px;
+   height:44px;
+   border-radius:20px
+}
+.video__play {
+   position: absolute;
+   margin: 0px 0px 0px 1160px;
+   white-space: nowrap;
+   margin-top: 10px;
+}
+.title {
+   font: 57px "Amalfi";
+}
+.content {
+   margin-top: 10px;
+   font: 20px "Acrom-Regular";
+}
+.video__button {
+   margin-top: 35px;
+   position:absolute;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   column-gap:19px;
+   background:#FFC5D2;
+   width:168px;
+   height:44px;
+   border-radius:20px
+}
+.video__foto {
+   position: absolute;
+   margin-left: 600px;
+   margin-top: 10px;
+}
+/*....................................................................................
+FOOTER
+.....................................................................................*/
+.footer{
+   margin-top: -100px ;
+}
+.footer__container{
+   display:grid;
+   grid-template-columns:36.9270833333% 63.0729166667%
+}
+.footer__left{
+   padding-top:51px;
+   padding-bottom:96px;
+   background:#BEE4D6;
+   display:flex;
+   justify-content:space-between
+}
+.footer__left>.wrap{
+   padding-right:42px
+}
+.footer__name1{
+   display:block;
+   font:134px "Amalfi";
+   color: #000;
+   
+}
+.footer__name2{
+   display:block;
+   font:52px "Amalfi";
+   width:100%;
+   text-align:center;
+   color: #000;
+}
+
+.footer__right{
+   padding-top:51px;
+   background:#FFC5D2
+}
+.footer__right>.wrap{
+   margin-left:14px;
+   width:74.2361684558%
+}
+.footer__contacts{
+   font-family:Acrom,sans-serif;
+   text-align:right;
+   font-size:18px;
+   display:flex;
+   flex-direction:column;
+   row-gap:8px
+}
+.footer__menu{
+   margin-bottom:27px
+}
+.footer__menu>.menu{
+   display:flex;
+   flex-wrap:wrap;
+   padding:1em;
+   justify-content:center;
+   column-gap:clamp(5px,1.1979166667vw,33px)
+}
+.footer__menu>.menu>*{
+   color:#000
+}
+
+.footer__menu .menu__item>.submenu{
+   background:rgba(255,197,210,.3098039216);
+   backdrop-filter:blur(4px)
+}
+.footer__menu .menu__item:hover *{
+   color:#000
+}
+.footer__menu .menu__item:hover>.submenu>.menu__item:hover>a{
+   color:#000
+}
+.menu__txt{
+   font: 40px "Amalfi";  
+   color: #000;
+}
+.developer{
+   border-top:1px solid #000;
+   display:grid;
+   grid-template-columns:36.9270833333% 63.0729166667%
+}
+.developer>*:nth-child(1){
+   background:#BEE4D6
+}
+
+.developer>*:nth-child(2){
+   background:#FFC5D2;
+   
+}
+.delope__txt1{
+   font:16px "Montserrat";
+   color: #000;
+}
+.delope__txt2{
+   font: 16px 'PFDinDisplayPro';
+   color: #000;
+}
+
+.developer>*:nth-child(2)>.wrap{
+   padding:10px 0 13px;
+   display:flex;
+   justify-content:flex-end;
+   width:74.2361684558%
+}
+.developer>*:nth-child(2)>.wrap>a>*{
+   display:inline
+}
+.developer>*:nth-child(2)>.wrap>a *:not(:last-child){
+   margin-right:5px
+}
+/*....................................................................................
+
+------------------------------------- ABOUT US ----------------------------------------
+
+.....................................................................................*/
+
+/*....................................................................................
+
+HEADER
+
+.....................................................................................*/
+.header1{
+   color:#000;
+   position:relative;
+
+}
+.header1>*{
+   transform:rotate(0);
+   z-index:2
+}
+.header1 li,.header1 a{
+   color:#000
+}
+.header1__container{
+   width:min(1320px,96%);
+   margin:0 auto;
+   margin-top: -20px ;
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   flex-wrap:wrap;
+   row-gap:.7em;
+}
+.header1__up{
+   padding:16px 0;
+   border-bottom:1px solid #000
+}
+.header1__up .wrap{
+   display:flex;
+   justify-content:center;
+   column-gap:min(1.3541666667vw,26px);
+   font: 16px "Acrom-Regular";
+   flex-wrap:wrap;
+   row-gap:16px;
+   padding-top:14px;
+}
+.header1__up .wrap>*{
+   white-space:nowrap
+}
+.header1__down{
+   padding-top:20px
+}
+.header1 .submenu{
+   background:rgba(240,231,229,.3098039216);
+   backdrop-filter:blur(4px)
+}
+.header1 .submenu>.menu__item{
+   z-index:10
+}
+.menu__txt2{
+   font: 40px "Amalfi";
+}
+.block-text1{
+   position: relative;
+   display: flex;
+   font: 36px 'Athiti-Light';
+   color: #000000;
+}
+.header__text1{
+   display: flex;
+   position: absolute;
+   margin: 60px 0px 0px 106px;
+   font: 14px 'Acrom-Regular';
+   line-height: 17px;
+   color: #000000;
+}
+.header__block1 {
+   display: flex;
+}
+.header__container3{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   min-height: 82px;
+}
+.header__logo{
+   display: flex;
+   margin-bottom: 22px;
+}
+.logo__title{
+   font: 95px "Amalfi";
+   color: #EA7A93;
+}
+.logo__txt{
+   font: 40px "Amalfi";
+   color: #EA7A93;
+}
+.menu__txt2:hover{
+   color: #EA7A93;
+}
+img.background1 {
+   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 0;
+}
+/*....................................................................................
+ABOUT US
+.....................................................................................*/
+.about-page{
+   position: relative;
+   z-index: 2;
+   margin-bottom:88px;
+   margin-top: 160px;
+   padding-bottom:200px ;
+}
+.about-page__container{
+   width:min(1320px,96%);
+   margin:0 auto
+}
+.about-page__title{
+   color:#ea7a93;
+   font: 111px "Amalfi";
+   margin-bottom:23px;
+}
+.about-page__title1{
+   color:#ea7a93;
+   font: 111px "Amalfi";
+   margin-bottom:23px;
+   margin-left: 455px;
+}
+.about-page__galary{
+   display:grid;
+   grid-template-columns:repeat(auto-fill,minmax(650px,1fr));
+   place-items:center;
+   gap:22px 20px
+}
+.about-page__galary>img{
+   border-radius:25px;
+   overflow:hidden;
+   object-fit:cover;
+   position: relative;
+   z-index: 1;
+   
+}
+
+.about-grid{
+   margin-bottom:64px
+}
+.about-grid__container{
+   background:url(../img/shariki.svg) no-repeat;
+   background-position:right;
+   background-size:contain;
+   font:16px "Acrom-Regular";
+}Acrom-Light
+.about-grid__container>*{
+   width:60%
+}
+.about-grid__container>*:not(:last-child),.about-grid__container li:not(:last-child){
+   margin-bottom:1rem
+}
+.about-grid__container>*:last-child{
+   margin-top:-1rem
+}
+.about-grid__container li{
+   display:flex;
+   align-items:center;
+   column-gap:20px
+}
+.about-grid__container_right{
+   background:url(../img/shar.svg) no-repeat;
+   background-position:left;
+   background-size:contain;
+   margin-left:-8rem
+}
+
+.about-grid__container_right>*{
+   margin-left:40%
+}
+
+.about-grid__container_right>*:last-child{
+   margin-top:0
+}
+
+.about-grid__container_empty{
+   background:none
+}
+.about-grid__container_empty>*{
+   width:100%
+}
+.about-grid__container_empty>*:last-child{
+   margin-top:0
+}
+.bg-color{
+   background-color: #fdecdd;
+}
+.breads{
+   max-width: 400px;
+   position: absolute;
+   display:flex;
+   align-items:baseline;
+   column-gap:5px;
+   margin:58px auto 0;
+   font:16px "Acrom-Light";
+   margin: -130px 0px 0px 260px;
+}
+.breads__title{
+   color: #000;
+}
+.breads>img{
+   width:14px;
+   height:13px
+}
+/*....................................................................................
+
+---------------------------------- PRINIMAEM DETEY -----------------------------------
+
+.....................................................................................*/
+.accept__container,.details__container{
+   font-size:20px;
+   width:min(1320px,96%);
+   margin:0 auto
+}
+.accept__container>i,.details__container>i{
+   font-family:'Acrom-Regular';
+   font-size:16px
+}
+.accept__list,.details__list{
+   font-family:'Acrom-Regular';
+   font-size:16px;
+   margin:42px 0
+}
+.accept__list>li+li,.details__list>li+li{
+   margin-top:19px
+}
+.accept__text,.details__text{
+   font-family:'Acrom-Regular';
+   font-size:16px
+}
+.accept__text+.accept__text,.details__text+.accept__text,.accept__text+.details__text,.details__text+.details__text{
+   margin-top:1em
+}
+.accept>i{
+   font-family:'Acrom-Regular';
+   font-size:16px
+}
+.accept__title{
+   color: #EA7A93;
+   font: 111px "Amalfi";
+}
+.accept{
+   margin-top: 100px;
+   margin-bottom: 180px;
+}
+.breads1{
+   max-width: 400px;
+   position: absolute;
+   display:flex;
+   align-items:baseline;
+   column-gap:5px;
+   margin:58px auto 0;
+   font:16px "Acrom-Light";
+   margin: -70px 0px 0px 270px;
+}
+.breads__title{
+   color: #000;
+}
+.breads1>img{
+   width:14px;
+   height:13px
+}
+.header2{
+   color:#000;
+   position:relative;
+   background:#F0E7E5;
+   z-index:10;
+}
+.header2 li,.header2 a{
+   color:#000
+}
+.header2 .submenu{
+   background:rgba(240,231,229,.3098039216);
+   backdrop-filter:blur(4px)
+}
+.li-heart {
+   display: flex;
+   align-items: center;
+   column-gap: 15px;
+}
+.menu__txt3{
+   font: 40px "Amalfi";
+}
+.menu__txt3:hover{
+   color: #EA7A93;
+}
+/*....................................................................................
+
+---------------------------------- REKVIZITY -----------------------------------------
+
+.....................................................................................*/
+
+.details{
+   margin-top: 100px;
+   margin-bottom:300px
+}
+.details__row{
+   display:flex;
+   column-gap:20px
+}
+.details__left{
+   font-family:Acrom,sans-serif;
+   font-size:16px
+}
+.details__right>.details__text{
+   display:flex;
+   flex-direction:column
+}
+.details__right>.details__text>i{
+   width:max-content
+}
+.details__right{
+   padding: 0px 0px 0px 40px;
+}
+.details__text1 {
+   font: 16px "Acrom-Regular";
+   color: #000;
+}
+.int{
+   position: absolute;
+   margin-top: -16px;
+}
+/*....................................................................................
+
+------------------------------ OFICIALNYE-DOKUMENTY ----------------------------------
+
+.....................................................................................*/
+.documents{
+   margin-top: 100px;
+   margin-bottom:382px
+}
+.documents__container{
+   width:min(1320px,96%);
+   margin:0 auto
+}
+.documents__list{
+   font:16px "Acrom-Regular";
+   display:flex;
+   flex-wrap:wrap;
+   gap:41px 17px;
+   color:#000
+
+}
+.documents__list>*{
+   flex:1 1 48%
+}
+.documents__item>a{
+   display:flex;
+   align-items:center;
+   column-gap:14px;
+   color:#000;
+}
+/*....................................................................................
+
+----------------------------------- SOTRUDNIKI ---------------------------------------
+
+.....................................................................................*/
+.main1 {
+   margin-top: 100px;
+   margin-bottom: 240px;
+   
+}
+.news,.news-page1,.report-page{
+   display:flex;
+   align-items:center;
+   justify-content:start;
+   gap:20px 10px;
+   flex-wrap:wrap;
+   width:min(1320px,96%);
+   margin:0 auto;
+   margin-bottom:6.25vw
+}
+
+.news .card__bottom,.news-page .card__bottom,.report-page .card__bottom{
+   bottom:54px
+}
+.card__title-sotrudniki {
+   font: 54px "Amalfi";
+}
+/*....................................................................................
+
+----------------------------------- KAK NAS NAITI ---------------------------------------
+
+.....................................................................................*/
+.map{
+   margin-bottom:180px
+}
+.map__container{
+   width:min(1320px,96%);
+   margin:0 auto;
+   height: 600px;
+}
+.map__contacts{
+   display:flex;
+   gap:20px
+}
+.map__data{
+   font:16px "Acrom";
+}
+.map__data>a{
+   display:block;
+   color: #000;
+}
+.map__data>*+*{
+   margin-top:10px;
+}
+.map-cart{
+   position: absolute;
+   margin: 0px 0px 0px 360px;
+}
+/*....................................................................................
+
+----------------------------------- KAK POMOCH ---------------------------------------
+
+.....................................................................................*/
+.help-page{
+   font:16px "Acrom-Regular";
+}
+.help-page__container{
+   width:min(1320px,96%);
+   margin:0 auto;
+   margin-top: 100px;
+   margin-bottom: 200px;
+
+}
+.help-page__container .about-page__title{
+   font-size:clamp(67px,5.78125vw,111px)
+}
+.help-page__list{
+   display:flex;
+   flex-direction:column;
+   row-gap:19px;
+   margin-bottom:70px
+}
+.help-page__list>li{
+   display:flex;
+   align-items:center;
+   column-gap:15px
+}
+.help-page__title{
+   margin-bottom:32px;
+   font-size:20px
+}
+.help-page__text{
+   margin-bottom:36px;
+   font-family:Acrom,sans-serif;
+   font-size:16px
+}
+.help-page+.panel{
+   margin-bottom:64px
+}
+.help-page__projects{
+   display:flex;
+   flex-wrap:wrap;
+   gap:42px 80px;
+   margin-bottom:120px
+}
+.help-page__projects>.panel-jumped-photo{
+   flex:1 1 38%
+}
+.help-page__projects .news__button{
+   margin-top:0
+}
+.help-page__get{
+   display:flex;
+   flex-wrap:wrap;
+   gap:42px 20px;
+   margin-bottom:64px
+}
+.help-page__get>.panel{
+   flex:1 1 480px;
+   background-size:45%!important;
+   background-position:100% 100%!important
+}
+.help-page__get>.panel>.panel__left{
+   padding:29px clamp(5px,2.2395833333vw,43px)
+}
+.help-page__get>.panel .panel__title{
+   font-size:clamp(70px,4.1666666667vw,80px)
+}
+.help-page__requisites{
+   font-family:Acrom,sans-serif;
+   font-size:16px;
+   font-size:20px;
+   margin-bottom:110px
+}
+.panel-jumped-photo{
+   position:relative;
+   margin-bottom:60px;
+   padding:29px clamp(5px,2.2395833333vw,43px);
+   background:#F0E7E5;
+   border-radius:27px
+}
+.panel-jumped-photo__content{
+   position:relative;
+   z-index:3;
+   filter:drop-shadow(0px 0px 2px #fff)
+}
+.panel-jumped-photo__title{
+   font: 80px "Amalfi";
+   font-weight:400
+}
+.panel-jumped-photo__text{
+   width:50%;
+   font-family:Acrom,sans-serif;
+   font-size:16px;
+   margin:21px 0 24px
+}
+.panel-jumped-photo__img{
+   position:absolute;
+   border-radius:10px;
+   z-index:2;
+   right:-10%;
+   bottom:-10%
+}
+.panel-jumped-photo .news__button{
+   position:static;
+   margin-bottom:45px
+}
+.panel-jumped-photo__txt{
+   font: 37px "Amalfi";
+   color: #000;
+}
+.panel111{
+   position: absolute;
+   margin-left: -50px;
+}
+.panel112{
+   position: relative;
+   margin-left: -50px;
+}
+.breads2{
+   font: 16px "Acrom-Light";
+   margin-top: -70px;
+}
+.panel__title{
+   white-space: nowrap;
+}
+/*....................................................................................
+
+----------------------------------- NA VOLNE POSITIVA --------------------------------
+
+.....................................................................................*/
+.open{
+   display: flex;
+   margin-left: 280px;
+   margin-top: 100px;
+}
+.open__text{
+   font-family:Acrom,sans-serif;
+   font-size:16px;
+   margin-bottom:64px;
+   font-size:clamp(14px,2.0833333333vw,20px)
+}
+
+.open__img{
+   margin-bottom:180px;
+   border-radius:25px
+}
